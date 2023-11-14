@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
-  config.vm.synced_folder "./", "/home/vagrant/iot"
-  server.vm.hostname = "host-iot"
+  config.vm.synced_folder "./", "/home/vagrant/iot", SharedFoldersEnableSymlinksCreate: false
+  config.vm.hostname = "host-iot"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
