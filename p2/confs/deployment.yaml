@@ -15,13 +15,13 @@ spec:
         app: app-one
     spec:
       containers:
-      - name: app-one
-        image: paulbouwer/hello-kubernetes:1
-        ports:
-        - containerPort: 8080
-        env:
-          - name: MESSAGE
-            value: "Hello from app1!"
+        - name: app-one
+          image: paulbouwer/hello-kubernetes:1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MESSAGE
+              value: "Hello from app1!"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -40,13 +40,13 @@ spec:
         app: app-two
     spec:
       containers:
-      - name: app-two
-        image: paulbouwer/hello-kubernetes:1
-        ports:
-        - containerPort: 8080
-        env:
-          - name: MESSAGE
-            value: "Hello from app2"
+        - name: app-two
+          image: paulbouwer/hello-kubernetes:1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MESSAGE
+              value: "Hello from app2!"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -65,10 +65,10 @@ spec:
         app: app-three
     spec:
       containers:
-      - name: app-three
-        image: paulbouwer/hello-kubernetes:1
-        ports:
-        - containerPort: 8080
-        env:
-         - name: MESSAGE
-           value: "Hello from app3!"
+        - name: app-three
+          image: paulbouwer/hello-kubernetes:1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MESSAGE
+              value: "Hello from app3!"
