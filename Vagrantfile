@@ -15,6 +15,9 @@ Vagrant.configure("2") do |config|
     apt-get upgrade
     apt-get install -y curl git vim virtualbox vagrant
     addgroup vagrant vboxusers
+    echo "192.168.56.118 app1.com" >> /etc/hosts
+    echo "192.168.56.118 app2.com" >> /etc/hosts
+    echo "192.168.56.118 app3.com" >> /etc/hosts
   SHELL
 
 end
