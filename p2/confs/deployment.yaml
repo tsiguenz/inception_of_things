@@ -19,6 +19,9 @@ spec:
         image: paulbouwer/hello-kubernetes:1
         ports:
         - containerPort: 8080
+        env:
+          - name: MESSAGE
+            value: "Hello from app1!"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,6 +44,9 @@ spec:
         image: paulbouwer/hello-kubernetes:1
         ports:
         - containerPort: 8080
+        env:
+          - name: MESSAGE
+            value: "Hello from app2"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -63,3 +69,6 @@ spec:
         image: paulbouwer/hello-kubernetes:1
         ports:
         - containerPort: 8080
+        env:
+         - name: MESSAGE
+           value: "Hello from app3!"
