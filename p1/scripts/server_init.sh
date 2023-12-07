@@ -12,3 +12,5 @@ echo "Share the token for the worker..."
 
 mkdir -p /vagrant/shared
 cat /var/lib/rancher/k3s/server/token > /vagrant/shared/token
+
+chmod 644 /etc/rancher/k3s/k3s.yaml
