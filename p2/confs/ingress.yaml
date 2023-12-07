@@ -13,7 +13,7 @@ spec:
             service:
               name: app-one
               port:
-                number: 8080
+                number: 80
 
   - host: app2.com
     http:
@@ -24,7 +24,7 @@ spec:
             service:
               name: app-two
               port:
-                number: 8080
+                number: 80
 
   - host: app3.com
     http:
@@ -35,4 +35,4 @@ spec:
             service:
               name: app-three
               port:
-                number: 8080
+                number: 80
