@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$(id -u)" != "0" ]
+then
+	echo "Can't run this script without root permissions..."
+	exit 1
+fi
+
 echo "Change network interface..."
 
 # for ifconfig
