@@ -68,3 +68,12 @@ curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/lat
 install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 print_status "argocd is correctly installed"
+
+print_status "Setting up host to access application..."
+if grep "devapp.tsiguenz.local" /etc/hosts > /dev/null 2>&1
+then
+	print_status "Host is already set!"
+else
+	echo "127.0.0.1       devapp.tsiguenz.local" >> /etc/hosts
+	print_status "Host is now setup!"
+fi

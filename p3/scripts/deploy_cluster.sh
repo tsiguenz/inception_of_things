@@ -27,14 +27,18 @@ ARGOCD_PASSWORD=$(kubectl -n argocd get secret argocd-initial-admin-secret \
 													-o jsonpath="{.data.password}" | base64 -d)
 ARGOCD_API_ADDRESS="localhost:80"
 
-argocd login "$ARGOCD_API_ADDRESS"	--insecure --plaintext \
+print_status "Password is $ARGOCD_PASSWORD"
+argocd login "$ARGOCD_API_ADDRESS"	--insecure --plaintext --grpc-web \
 																		--username "$ARGOCD_USERNAME" \
 																		--password "$ARGOCD_PASSWORD"
 
 print_status "Creating app dev..."
-argocd app create dev --repo "https://github.com/tmatis/tmatis-iot-app-repo.git" \
+argocd app create dev --repo "https://github.com/tsiguenz/tsiguenz-iot-app-repo.git" \
 											--path "dev" \
-											--project "development" \
-											--dest-namespace "argocd" \
-											--dest-server "https://kubernetes.default.svc"
+											--dest-namespace "dev" \
+											--dest-server "https://kubernetes.default.svc" \
+											--grpc-web \
+											--sync-policy automated \
+											--auto-prune \
+											--self-heal
 
